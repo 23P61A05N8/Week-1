@@ -1,1 +1,142 @@
-//Register 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Concert Registration</title>
+    <style>
+        :root {
+            --primary-color: #6b8e23; /* Olive Green */
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85em;
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #556b2f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Yoga & Sound Concert</h2>
+    <p class="subtitle">Secure your spot for an evening of mindful movement and live music.</p>
+
+    <form action="/submit-registration" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Experience Level</label>
+            <select id="experience" name="experience">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Will you bring your own mat?</label>
+            <div class="radio-group">
+                <label style="font-weight: normal;"><input type="radio" name="mat" value="yes" checked> Yes</label>
+                <label style="font-weight: normal;"><input type="radio" name="mat" value="no"> No (Rent for $5)</label>
+            </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the health waiver and event terms & conditions.</label>
+        </div>
+
+        <button type="submit">Complete Registration</button>
+    </form>
+</div>
+
+</body>
+</html>
