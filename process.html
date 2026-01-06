@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Confirmed | Royal Gala</title>
+    <style>
+        :root {
+            --royal-red: #9d0208;
+            --deep-crimson: #370617;
+            --glass-white: rgba(255, 255, 255, 0.12);
+            --pure-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Garamond', serif;
+            background: radial-gradient(circle at center, #6a040f 0%, #03071e 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .confirmation-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .seal {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffd700, #b8860b);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--deep-crimson);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        h1 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
+
+        .details { font-size: 1.2rem; line-height: 1.6; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px; }
+        
+        strong { color: #ffd700; } /* Highlight data in gold */
+
+        .btn-back {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 30px;
+            border-radius: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover { background: white; color: var(--deep-crimson); }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-card">
+        <div class="seal">✓</div>
+        <h1>Accepted</h1>
+        
+        <div class="details" id="output">
+            Processing your invitation...
+        </div>
+
+        <a href="index.html" class="btn-back">Return to Hall</a>
+    </div>
+
+    <script>
+        // Function to grab data from the URL (Query String)
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name') || "Honored Guest";
+        const ticket = params.get('ticket') || "Grand Tier";
+
+        // Inject the data into the HTML
+        document.getElementById('output').innerHTML = `
+            It is our honor to confirm the attendance of <br>
+            <strong>${decodeURIComponent(name)}</strong> <br>
+            to the <strong>${decodeURIComponent(ticket)}</strong> experience.
+        `;
+    </script>
+</body>
+</html>
